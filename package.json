@@ -1,0 +1,25 @@
+{
+  "name": "microservices-kubernetes-demo",
+  "version": "1.0.0",
+  "description": "Two microservices application deployed on Kubernetes",
+  "type": "module",
+  "scripts": {
+    "install:all": "npm run install:user && npm run install:order",
+    "install:user": "cd user-service && npm install",
+    "install:order": "cd order-service && npm install",
+    "start:user": "cd user-service && npm start",
+    "start:order": "cd order-service && npm start",
+    "dev:user": "cd user-service && npm run dev",
+    "dev:order": "cd order-service && npm run dev"
+  },
+  "keywords": [
+    "microservices",
+    "kubernetes",
+    "nodejs",
+    "express",
+    "rest-api",
+    "demo"
+  ],
+  "author": "",
+  "license": "MIT"
+}
