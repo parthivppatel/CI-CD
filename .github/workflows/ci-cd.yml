@@ -48,13 +48,6 @@ jobs:
     strategy:
       matrix:
         service: [user-service, order-service]
-        include:
-          - service: user-service
-            port: 8003
-            image_name: ${{ env.IMAGE_NAME_USER }}
-          - service: order-service
-            port: 8002
-            image_name: ${{ env.IMAGE_NAME_ORDER }}
 
     steps:
       - name: Checkout code
@@ -74,7 +67,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ matrix.image_name }}
+          images: ${{ env.REGISTRY }}/${{ github.repository }}/${{ matrix.service }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
